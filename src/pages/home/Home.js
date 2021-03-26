@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllPosts } from "../../assets/fetcher";
 import { getPosts, setPosts } from "../../redux/features/PostsSlice";
+import FlipMove from "react-flip-move";
 import Preview from "../../components/preview/Preview";
+import "./home.css";
 
 function Home() {
   const posts = useSelector(getPosts);
@@ -17,15 +19,13 @@ function Home() {
   }, []);
 
   return (
-    <div className="App">
-      <h2>App</h2>
-      <table>
-        <tbody>
-          {posts.map(({ id, title }) => (
-            <Preview key={id} title={title} id={id} />
-          ))}
-        </tbody>
-      </table>
+    <div className="home">
+      <h2>A Blog</h2>
+      <FlipMove className="preview__table">
+        {posts.map(({ id, title }) => (
+          <Preview key={id} title={title} id={id} />
+        ))}
+      </FlipMove>
     </div>
   );
 }

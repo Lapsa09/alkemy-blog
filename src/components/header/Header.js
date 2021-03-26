@@ -1,13 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./header.css";
 
 function Header() {
   return (
     <>
-      <navbar className="header">
-        <Link to="/">Home</Link>
-        <Link to="/create">New Post</Link>
-      </navbar>
+      <div className="header">
+        <Link className="link" to="/">
+          Home
+        </Link>
+        <Link className="link" to="/create">
+          New Post
+        </Link>
+      </div>
     </>
   );
 }

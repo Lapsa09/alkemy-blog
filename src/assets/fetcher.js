@@ -21,10 +21,14 @@ const postPost = async (title, body) => {
 };
 
 const editPost = async (id, title, body) => {
-  await axios.put(`${BASE_URL}/${id}`, {
-    title,
-    body,
-  });
+  try {
+    await axios.put(`${BASE_URL}/${id}`, {
+      title,
+      body,
+    });
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 const deletePost = async (id) => {

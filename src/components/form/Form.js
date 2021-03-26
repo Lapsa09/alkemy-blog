@@ -3,6 +3,7 @@ import { useHistory, useLocation, useParams } from "react-router";
 import { editPost, getSinglePost, postPost } from "../../assets/fetcher";
 import CustomTextInput from "../customTextInput/CustomTextInput";
 import CustomTextBody from "../customTextBody/CustomTextBody";
+import "./form.css";
 
 function Form() {
   const { pathname } = useLocation();
@@ -30,7 +31,7 @@ function Form() {
 
   const handleEdit = async (e) => {
     e.preventDefault();
-    await editPost(title, body);
+    await editPost(id, title, body);
     history.push("/");
   };
   return (

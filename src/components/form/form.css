@@ -1,0 +1,32 @@
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form * {
+    width: 100%;
+}
+
+.form>button {
+    background-color: #8739f9;
+    border: none;
+    padding: 15px;
+    width: 190px;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: ease-in-out 0.3s;
+}
+
+.form>button:hover {
+    background-color: #9c5dfa;
+}
+
+@media(max-width:600px) {
+    .form>button {
+        width: 100%;
+    }
+}

@@ -1,6 +1,5 @@
 .textInput {
     margin: 0 auto;
-    /* width: 30%; */
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -12,13 +11,11 @@
 }
 
 .textInput>input {
+    background-color: rgba(255, 255, 255, 0.45);
+    color: rgba(255, 255, 255, 0.67);
     width: 100%;
     margin-top: 5px;
-    border-top: 0;
-    border-left: 0;
-    border-right: 0;
-    border-bottom: 1px solid lightgray;
-    /* text-transform: capitalize; */
+    border: none;
     outline: none;
     font-size: 1.5rem;
 }

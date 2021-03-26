@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { getSinglePost } from "../../assets/fetcher";
 import Post from "../../components/post/Post";
+import "./details.css";
 
 function Details() {
   const [post, setPost] = useState({});

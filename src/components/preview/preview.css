@@ -1,0 +1,32 @@
+.postPrev {
+    background-color: #242424;
+    display: grid;
+    column-gap: 10px;
+    grid-template-columns: 1fr 0.2fr 0.1fr;
+    align-items: center;
+    padding: 10px;
+    padding-left: 20px;
+    border-radius: 5px;
+}
+
+.postPrev>span {
+    margin-left: 15px;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.45);
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.postPrev>span:hover {
+    color: rgba(255, 255, 255, 0.96);
+}
+
+.prev__icons>.MuiSvgIcon-root {
+    color: rgba(255, 255, 255, 0.45);
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.prev__icons>.MuiSvgIcon-root:hover {
+    color: rgba(255, 255, 255, 0.96);
+}

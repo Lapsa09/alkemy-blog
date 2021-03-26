@@ -1,0 +1,17 @@
+.header {
+    background-color: #242424;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px;
+}
+
+.header>.link {
+    color: rgba(255, 255, 255, 0.45);
+    text-decoration: none;
+    font-size: 1.375rem;
+    transition: ease-in-out 0.3s;
+}
+
+.header>.link:hover {
+    color: rgb(255, 255, 255)
+}

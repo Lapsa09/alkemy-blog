@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, useLocation, useParams } from "react-router";
 import { editPost, getSinglePost, postPost } from "../../assets/fetcher";
+import { useDispatch, useSelector } from "react-redux";
+import { getPosts, setPosts } from "../../redux/features/PostsSlice";
 import CustomTextInput from "../customTextInput/CustomTextInput";
 import CustomTextBody from "../customTextBody/CustomTextBody";
 import "./form.css";
@@ -11,6 +13,8 @@ function Form() {
   const history = useHistory();
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
+  const dispatch = useDispatch();
+  const posts = useSelector(getPosts);
 
   useEffect(() => {
     const typeOfForm = async () => {
@@ -25,13 +29,20 @@ function Form() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await postPost(title, body);
+    const newId = posts[posts.length - 1].id + 1;
+    const newPost = await postPost(newId, title, body);
+    dispatch(setPosts([newPost, ...posts]));
     history.push("/");
   };
 
   const handleEdit = async (e) => {
     e.preventDefault();
-    await editPost(id, title, body);
+    const editedPost = await editPost(id, title, body);
+    dispatch(
+      setPosts(
+        posts.map((post) => (post.id == editedPost.id ? editedPost : post))
+      )
+    );
     history.push("/");
   };
   return (

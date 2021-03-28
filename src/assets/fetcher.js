@@ -13,19 +13,23 @@ const getSinglePost = async (id) => {
   return data;
 };
 
-const postPost = async (title, body) => {
-  await axios.post(BASE_URL, {
+const postPost = async (id, title, body) => {
+  const { data } = await axios.post(BASE_URL, {
+    id,
     title,
     body,
   });
+
+  return data;
 };
 
 const editPost = async (id, title, body) => {
   try {
-    await axios.put(`${BASE_URL}/${id}`, {
+    const { data } = await axios.put(`${BASE_URL}/${id}`, {
       title,
       body,
     });
+    return data;
   } catch (error) {
     console.error(error);
   }

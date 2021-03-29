@@ -4,8 +4,22 @@ import CreatePost from "./pages/createPost/CreatePost";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import EditPost from "./pages/editPost/EditPost";
 import Header from "./components/header/Header";
+import { useDispatch } from "react-redux";
+import { getAllPosts } from "./assets/fetcher";
+import { setPosts } from "./redux/features/PostsSlice";
+import { useEffect } from "react";
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const postsData = await getAllPosts();
+      dispatch(setPosts(postsData));
+    };
+    fetchPosts();
+  }, []);
+
   return (
     <Router>
       <div className="App">
